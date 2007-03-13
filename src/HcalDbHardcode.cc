@@ -12,7 +12,7 @@
 HcalPedestal HcalDbHardcode::makePedestal (HcalDetId fId, bool fSmear) {
   HcalGain gain = HcalDbHardcode::makeGain (fId, fSmear);
   HcalPedestalWidth width = makePedestalWidth (fId);
-  float value0 = fId.subdet () == HcalForward ? 5. : 0.75; // GeV(!)
+  float value0 = 0.75;
   float value [4] = {value0, value0, value0, value0};
   if (fSmear) {
     for (int i = 0; i < 4; i++) {
@@ -31,7 +31,7 @@ HcalPedestal HcalDbHardcode::makePedestal (HcalDetId fId, bool fSmear) {
 
 HcalPedestalWidth HcalDbHardcode::makePedestalWidth (HcalDetId fId) {
   HcalGain gain = HcalDbHardcode::makeGain (fId);
-  float value = fId.subdet () == HcalForward ? 1. : 0.1;
+  float value = fId.subdet () == HcalForward ? 0.14 : 0.1;
   HcalPedestalWidth result (fId.rawId ());
   for (int i = 0; i < 4; i++) {
     double width = value / gain.getValue (i);
@@ -60,7 +60,7 @@ HcalGainWidth HcalDbHardcode::makeGainWidth (HcalDetId fId) {
 HcalQIECoder HcalDbHardcode::makeQIECoder (HcalDetId fId) {
   HcalQIECoder result (fId.rawId ());
   float offset = 0;
-  float slope = fId.subdet () == HcalForward ? 0.36 : 1.;
+  float slope = fId.subdet () == HcalForward ? 2.6 : 1.;
   for (unsigned range = 0; range < 4; range++) {
     for (unsigned capid = 0; capid < 4; capid++) {
       result.setOffset (capid, range, offset);
