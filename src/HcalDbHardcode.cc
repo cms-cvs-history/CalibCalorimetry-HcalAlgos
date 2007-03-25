@@ -318,7 +318,7 @@ void HcalDbHardcode::makeHardcodeMap(HcalElectronicsMap& emap) {
 	      fpga=((itb%2)==1)?("bot"):("top");
 	      ihtr_fi=ifb+1;
 	      ifi_ch=ifc;
-	      iphi=(ieta>39)?(ihfphis[ic]+(is%2)*12+ih*4-1)%72+1:(ihfphis[ic]+(is%2)*12+ih*4+(ifb/4)*2-1)%72+1;
+	      iphi=(ieta>39)?(ihfphis[ic]+(is%2)*12+ih*4-3)%72+1:(ihfphis[ic]+(is%2)*12+ih*4+(ifb/4)*2-1)%72+1;
 	      ispigot=(is%2)*6+ih*2+itb;
 	      idcc=is<EMAP_NHSETS/2?1:2;
 	      idcc_sl=idcc==1?9:19;
