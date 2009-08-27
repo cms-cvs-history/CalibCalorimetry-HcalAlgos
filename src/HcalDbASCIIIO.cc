@@ -1,10 +1,11 @@
 
 //
 // F.Ratnikov (UMd), Oct 28, 2005
-// $Id: HcalDbASCIIIO.cc,v 1.45 2009/05/19 16:05:55 rofierzy Exp $
+// $Id: HcalDbASCIIIO.cc,v 1.46 2009/05/20 15:54:17 rofierzy Exp $
 //
 #include <vector>
 #include <string>
+#include <cstdio>
 
 #include "DataFormats/HcalDetId/interface/HcalGenericDetId.h"
 #include "DataFormats/HcalDetId/interface/HcalElectronicsId.h"
