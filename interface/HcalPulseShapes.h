@@ -8,8 +8,8 @@
 
 /** \class HcalPulseShapes
   *  
-  * $Date: 2011/07/26 21:05:40 $
-  * $Revision: 1.4 $
+  * $Date: 2011/09/08 13:23:03 $
+  * $Revision: 1.5 $
   * \author J. Mans - Minnesota
   */
 class HcalMCParams;
@@ -23,7 +23,7 @@ public:
   void beginRun(edm::EventSetup const & es);
   void endRun();
 
-  const Shape& hbShape() const { return hpdShape_; }
+  const Shape& hbShape(bool lv=false) const {  return lv ? hpdLVShape_ : hpdShape_; }
   const Shape& heShape() const { return hpdShape_; }
   const Shape& hfShape() const { return hfShape_; }
   const Shape& hoShape(bool sipm=false) const { return sipm ? siPMShape_ : hpdShape_; }
@@ -33,9 +33,10 @@ public:
   const Shape& defaultShape(const HcalDetId & detId) const;
 private:
   void computeHPDShape();
+  void computeHPDLVShape();
   void computeHFShape();
   void computeSiPMShape();
-  Shape hpdShape_, hfShape_, siPMShape_;
+  Shape hpdShape_, hpdLVShape_, hfShape_, siPMShape_;
   const HcalMCParams * theMCParams;
   typedef std::map<int, const Shape *> ShapeMap;
   ShapeMap theShapes;
