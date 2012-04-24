@@ -44,10 +44,10 @@ HcalPedestalWidth HcalDbHardcode::makePedestalWidth (HcalGenericDetId fId) {
 HcalRecoParam HcalDbHardcode::makeRecoParam (HcalGenericDetId fId) {
   int first = 0;
   int add = 0;
-  if (fId.genericSubdet() == HcalGenericDetId::HcalGenBarrel) {first = 4; add = 4;}
-  else if (fId.genericSubdet() == HcalGenericDetId::HcalGenEndcap) {first = 4; add = 4;}
+  if (fId.genericSubdet() == HcalGenericDetId::HcalGenBarrel) {first = 4; add = 2;}
+  else if (fId.genericSubdet() == HcalGenericDetId::HcalGenEndcap) {first = 4; add = 2;}
   else if (fId.genericSubdet() == HcalGenericDetId::HcalGenOuter) {first = 4; add = 4;}
-  else if (fId.genericSubdet() == HcalGenericDetId::HcalGenForward) {first = 4; add = 2;}
+  else if (fId.genericSubdet() == HcalGenericDetId::HcalGenForward) {first = 4; add = 1;}
   HcalRecoParam result(fId.rawId(), first, add);
 
   return result;
